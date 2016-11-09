@@ -1,0 +1,98 @@
+<!-- about.html -->
+<!-- Desc: Lookup consignment of items and display selected barcodes -->
+<head>
+   <title>IPEC Trace and Barcode Generator: Consignment Search</title>
+</head>
+<body>
+   <div class="jumbotron text-center">
+      <div class="row">
+         <div class="col-md-4"></div>
+         <div class="col-md-4">
+            <h1>Track Consignment</h1>
+            <p>{{ message }}</p>
+            <p>Enter Consignment or Item number : <input type="text" id="userInput"></p>
+            <button id="trackButton" type="button" class="btn btn-primary">Track</button>
+            <div class="alert alert-danger" id="errorMessage" style="visibility: hidden;">
+               <span class="glyphicon glyphicon-remove"></span>
+               <strong>Error!</strong> error message here
+            </div>
+         </div>
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+         <br>
+         <span style="visibility: hidden;" class="label label-default" id="itemCount">item count</span>
+         <br>
+         <table class="table table-striped " id="senderTable" style="font-size:12px;visibility: hidden;">
+            <thead>
+               <tr>
+                  <th class="text-center">Receiver:</th>
+                  <td id="recName" class="text-center">Receiver: </th>
+                  <td id="recSuburb" class="text-center">Suburb: </th>
+                  <td id="recPostcode" class="text-center">Postcode: </th>
+               </tr>
+               <tr>
+                  <th class="text-center">Sender:</th>
+                  <td id="senderName" class="text-center">Sender: </th>
+                  <td id="senderSuburb" class="text-center">Sender suburb: </th>
+                  <td id="senderPostcode" class="text-center">Sender postcode: </th>
+               </tr>
+         </table>
+         <table class="table table-striped " id="barcodeTable" style="font-size:12px;visibility:hidden;">
+            <thead>
+               <tr>
+                  <th class="text-center">Item #</th>
+                  <th class="text-center">Description</th>
+                  <th class="text-center">Location</th>
+                  <th class="text-center">Time</th>
+               </tr>
+            </thead>
+         </table>
+         <table border=0 cellpading=0 cellspacing=0>
+            <tr>
+               <td style="vertical-align:top">
+                  <table border=0 cellpading=0 cellspacing=0>
+                     <select type="hidden" id="symbol" style="width:70ex; display:none">
+                        <option value="sscc18">SSCC-18</option>
+                        <option value="code128">Code 128</option>
+                     </select>
+                     <input id="symaltx" type="hidden" style="width:63ex">
+                     <input id="symopts" type="hidden" style="width:63ex">
+                     <tr>
+                  </table>
+         </table>
+         <div id="content">
+            <canvas id="canvas" width=1 height=1 style="border:5px solid #fff;visibility:hidden"></canvas>
+            <div id="output" style="white-space:pre"></div>
+         </div>
+      </div>
+   </div>
+   <script>
+      // enable all elements
+      $("#barcodeTable").css("visibility","visible");
+      $("#senderTable").css("visibility","visible");
+      $("#itemCount").css("visibility","visible");
+      $("#content").css("visibility","visible");
+      $("#errorMessage").css("visibility","visible");
+   </script>
+   <!--<script type="text/javascript" src="lib/jquery.js"></script>
+      <link rel="stylesheet" type="text/css" href="lib/jquery-ui.min.css">
+      <script type="text/javascript" src="lib/jquery-ui.min.js"></script>
+      
+      -->
+   <!--
+      <script type="text/javascript" src="freetype.js"></script>
+      <script type="text/javascript" src="bwipp.js"></script>
+      <script type="text/javascript" src="bwipjs.js"></script>
+      <script type="text/javascript" src="lib/bitmap.js"></script>
+      <script type="text/javascript" src="lib/symdesc.js"></script>
+      <script type="text/javascript" src="lib/canvas-toblob.js"></script>
+      <script type="text/javascript" src="lib/filesaver.js"></script>
+      <script type="text/javascript" src="lib/barcodeRender.js"></script>
+      
+      
+      <script src="lib/json2.js"></script>
+      <script src="lib/jsonlint.js"></script>
+      -->
+   <script type="text/javascript" src="resources/TrackConsignment.js"></script>
+</body>

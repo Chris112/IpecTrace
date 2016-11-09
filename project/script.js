@@ -17,28 +17,28 @@
             })
 
             // route for the about page
-            .when('/about', {
-                templateUrl : 'pages/about.html',
-                controller  : 'aboutController'
+            .when('/PhotoSearch', {
+                templateUrl : 'pages/PhotoSearch.html',
+                controller  : 'photoController'
             })
 
             // route for the contact page
-            .when('/contact', {
-                templateUrl : 'pages/contact.html',
-                controller  : 'contactController'
+            .when('/TrackConsignment', {
+                templateUrl : 'pages/TrackConsignment.html',
+                controller  : 'trackConController'
             });
     });
 
     // create the controller and inject Angular's $scope
     ipectrace.controller('mainController', function($scope) {
         // create a message to display in our view
-        $scope.message = 'Everyone come and see how good I look!';
+        $scope.message = 'Injected text';
     });
 
-    ipectrace.controller('aboutController', function($scope) {
-        $scope.message = 'injected text here';
+    ipectrace.controller('photoController', function($scope) {
+        $scope.message = '';
     });
 
-    ipectrace.controller('contactController', function($scope) {
-        $scope.message = 'Contact us! JK. This is just a demo.';
+    ipectrace.controller('trackConController', function($scope) {
+        $scope.message = '';
     });
