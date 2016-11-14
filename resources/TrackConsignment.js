@@ -202,7 +202,12 @@ function updateTable() {
     $("#barcodeTable").append('<tbody>');
     for (var i = 0; i < items.length; i++) {
 
-        var row = '<tr><td class="text-center">' + items[i].itemNumber + '</td>';
+		var row = '';
+		if (items[i].description === 'FREIGHT DELIVERED') {
+			row += '<tr class="success"><td class="text-center">' + items[i].itemNumber + '</td>';
+		} else {
+			row += '<tr><td class="text-center">' + items[i].itemNumber + '</td>';
+		}
         row += '<td class="text-center">' + items[i].description + '</td>';
         row += '<td class="text-center">' + items[i].itemLoc + '</td>';
         row += '<td>' + items[i].lastScan + '</td>';
@@ -236,6 +241,7 @@ function enableBarcodeGeneration() {
     });
 }
 
+
 // When Track button is clicked, fetch data using Tolls public Track and Trace
 $("#trackButton").click(function() {
     var conToSearch = document.getElementById("userInput").value;
@@ -248,4 +254,12 @@ $("#trackButton").click(function() {
     console.log('loading con data.');
     $("#trackButton").text('Fetching data');
     $("#trackButton").attr("disabled", true);
+	$.ajax({
+		data: 'conID=' + document.getElementById("userInput").value,
+		url: 'resources/SaveSearch.php',
+		method: 'POST', // or GET
+		success: function(msg) {
+			alert(msg);
+		}
+	});
 });

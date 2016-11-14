@@ -46,7 +46,13 @@ function updateTable() {
     $("#barcodeTable").append('<tbody>');
     for (var i = 0; i < items.length; i++) {
 
-        var row = '<tr><td class="text-center">' + items[i].itemNumber + '</td>';
+	
+		var row = '';
+		if (items[i].description === 'FREIGHT DELIVERED') {
+			row += '<tr class="success"><td class="text-center">' + items[i].itemNumber + '</td>';
+		} else {
+			row += '<tr><td class="text-center">' + items[i].itemNumber + '</td>';
+		}
         row += '<td class="text-center">' + items[i].description + '</td>';
         row += '<td class="text-center">' + items[i].itemLoc + '</td>';
         row += '<td>' + items[i].lastScan + '</td>';
@@ -89,6 +95,14 @@ $("#photoTrackButton").click(function() {
     console.log('loading con data.');
     $("#photoTrackButton").text('Fetching data');
     $("#photoTrackButton").attr("disabled", true);
+		$.ajax({
+		data: 'conID=' + $('h4').text(),
+		url: 'resources/SaveSearch.php',
+		method: 'POST', // or GET
+		success: function(msg) {
+			alert(msg);
+		}
+	});
 });
 
 

@@ -5,14 +5,16 @@
 <html ng-app="ipectrace" lang="en-US">
 
    <head>
-   <!--<intercept-url pattern="/favicon.ico" access="ROLE_ANONYMOUS" />-->
+
+	
+	<link rel="shortcut icon" href="favicon.ico" />
 
    
       <script type="text/javascript" src="lib/jquery.js"></script>
       <link rel="stylesheet" type="text/css" href="lib/jquery-ui.min.css">
       <script type="text/javascript" src="lib/jquery-ui.min.js"></script>
       <!-- Include Angular Material -->
-      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+      <link rel="stylesheet" href="lib/angular-material.min.css">
       <script type="text/javascript" src="https://code.angularjs.org/1.5.3/angular.js"></script>
       <script type="text/javascript" src="https://code.angularjs.org/1.5.3/angular-route.js"></script>
       <script type="text/javascript" src="https://code.angularjs.org/1.5.3/angular-animate.js"></script>
@@ -33,12 +35,19 @@
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
       <link rel="stylesheet" href="style.css" />
       <script src="script.js"></script>
+	  
+	  <!-- attempting to remove errors for ie and quaggaJS
+	  <script type="text/javascript" src="lib/quaggaJS/es6-promise.js"></script>
+	  <script type="text/javascript" src="lib/quaggaJS/exif_helper.js"></script>-->
+	  
+	  
       <!-- shouldnt need
          <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
          -->
    </head>
    <!-- define angular controller -->
    <body>
+   <div id="wrapper">
       <!-- HEADER AND NAVBAR -->
       <header>
          <nav class="navbar navbar-default">
@@ -49,7 +58,8 @@
                <ul class="nav navbar-nav navbar-right">
                   <li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
                   <li><a href="#TrackConsignment"><i class="glyphicon glyphicon-barcode"></i> Manual Enter</a></li>
-                  <li><a href="#PhotoSearch"><i class="glyphicon glyphicon-picture"></i> Photo Lookup</a></li>
+                  <li><a href="#PhotoSearch"><i class="glyphicon glyphicon-camera"></i> Photo Lookup</a></li>
+				  <li><a href="#Security"><i class="glyphicon glyphicon-eye-open"></i> Security</a></li>
                </ul>
             </div>
          </nav>
@@ -61,5 +71,15 @@
          <!-- this is where content will be injected -->
          <div ng-view></div>
       </div>
+	  </div>
+	  
+
+	
+	
    </body>
+  
+	
+   <footer class="footer">
+   <p> Copyright © 2016. All Rights Reserved | Designed and created by Chris Webb | www.imchrisw.com</p>
+   </footer>
 </html>
