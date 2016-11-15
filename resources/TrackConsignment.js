@@ -259,7 +259,7 @@ $("#trackButton").click(function() {
 		url: 'resources/SaveSearch.php',
 		method: 'POST', // or GET
 		success: function(msg) {
-			alert(msg);
+			//alert(msg);
 		}
 	});
 });

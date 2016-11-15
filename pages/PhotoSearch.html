@@ -8,14 +8,26 @@
    <body>
       <div class="jumbotron text-center">
          <h1>Photo Search</h1>
-         Lookup items by image
+         <p>Lookup items by image</p>
 		 
-		          <div class="controls">
-            <fieldset class="input-group">
+			  <div class="controls">
+			  
+			  <script>
+			  $(":file").filestyle({iconName: "glyphicon-camera"});
+			  </script>
+				<div style="margin:auto; max-width: 30%;">
+					<input type="file" accept="image/*" class="filestyle" data-iconName="glyphicon glyphicon-camera">
+				</div>
+	
+				<!--<a id="selectImageBtn" class="btn btn-blue" type="file" accept="image/*">Select Image</a>
+               
+			   <fieldset class="input-group">
                <label class="btn btn-primary">
-               Select Image<input type="file" style="display: none;" accept="image/*">
-               </label>
+               Select Image<input id="selectImageBtnUgly" type="file" style="display: none;" accept="image/*">
+               </label>-->
             </fieldset>
+			   
+          
             <fieldset class="reader-config-group" style="display:none;">
                <label>
                   <span>Barcode-Type</span>
@@ -84,10 +96,11 @@
             </ul>
             <br>
 			<div style="margin:auto; text-align:center;">
-            <button id="photoTrackButton" type="button" class="btn btn-primary" style="visibility:hidden;">Track Consignment</button>
+            <!--<button id="photoTrackButton" type="button" class="btn btn-primary" style="display:none;">Track Consignment</button>-->
+			<a id="photoTrackButton" style="display:none;" class="btn btn-blue">Track Consignment</a>
 			</div>
 			<br>
-            <div class="alert alert-danger" id="errorMessage" style="visibility: hidden;"">
+            <div class="alert alert-danger" id="errorMessage" style="display:none;">
                <span class="glyphicon glyphicon-remove"></span>
                <strong>Error!</strong> error message here
             </div>
@@ -95,11 +108,11 @@
 		 
 		 
 		 
-		 		<div style="margin:auto; max-width: 60%;">
+		 		<div style="margin:auto; max-width: 100%;">
 			<div class="row">
-				<span class="label label-default" id="itemCount" style="visibility: hidden; display:block;">item count</span><br>
+				<span class="label label-default" id="itemCount" style="display:none;">item count</span><br>
 				<div style="margin:auto; max-width: 80%;">
-					<table class="table table-striped" id="senderTable" style="font-size:14px;visibility: hidden;">
+					<table class="table table-striped" id="senderTable" style="font-size:14px;display:none;">
 						<thead>
 							<tr>
 								<th class="text-center">Receiver:</th>
@@ -118,7 +131,7 @@
 				</div>
 				
 				<div class="span3">
-					<table class="table table-striped" id="barcodeTable" style="font-size:12px;visibility:hidden;">
+					<table class="table table-striped" id="barcodeTable" style="font-size:12px; display:none;">
 						<thead>
 							<tr>
 								<th class="text-center">Item #</th>
@@ -130,23 +143,8 @@
 					</table>
 				</div>
 				<br>
-				<table border="0" cellspacing="0">
-					<tr>
-						<td style="vertical-align:top">
-							<select id="symbol" style="width:70ex; display:none">
-								<option value="sscc18">
-									SSCC-18
-								</option>
-								<option value="code128">
-									Code 128
-								</option>
-							</select>
-							<input id="symaltx" style="width:63ex" type="hidden"><input id="symopts" style="width:63ex" type="hidden">
-						</td>
-					</tr>
-				</table>
-				<div id="content">
-					<canvas height="1" id="canvas" style="border:5px solid #fff;visibility:hidden; display:block; margin: 0 auto;" width="1">
+				<div id="content" style="display:none;">
+					<canvas height="1" id="canvas" style="border:5px solid #fff;display:block; margin: 0 auto;" width="1">
 					</canvas>
 					<div id="output" style="white-space:pre">
 					</div>
@@ -159,12 +157,15 @@
 	  
       <script>
          // enable all elements
-         $(document).ready(function(){ 	$("#barcodeTable").css("visibility","visible");
-         $("#senderTable").css("visibility","visible");
-         $("#itemCount").css("visibility","visible");
-         $("#content").css("visibility","visible");
-         $("#errorMessage").css("visibility","visible");
-         $("#photoTrackButton").css("visibility","visible"); }) 
+         $(document).ready(function(){ 	
+
+			 /*$("#barcodeTable").css("visibility","visible");
+			 $("#senderTable").css("visibility","visible");
+			 $("#itemCount").css("visibility","visible");
+			 $("#content").css("visibility","visible");
+			 $("#errorMessage").css("visibility","visible");
+			 $("#photoTrackButton").css("visibility","visible"); */
+			 }) 
       </script>
 	  
       <script src="lib/quaggaJS/quagga.js" type="text/javascript"></script>

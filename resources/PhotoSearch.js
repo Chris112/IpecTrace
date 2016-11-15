@@ -3,12 +3,12 @@
 
 
 // Setup page
-$("#barcodeTable").hide();
+/*$("#barcodeTable").hide();
 $("#senderTable").hide();
 $("#itemCount").hide();
 $("#errorMessage").hide();
 $("#content").hide();
-$('#photoTrackButton').hide();
+$('#photoTrackButton').hide();*/
 
 // Item class 
 function Item(itemNumber) {
@@ -75,7 +75,6 @@ function enableBarcodeGeneration() {
                 barcodeID = "(00)" + barcodeID.substring(2, barcodeID.length);
             }
             render(barcodeID, barcodeType);
-			$('#content').css({'visibility':'visible'});
             $("#content").show();
         }
     });
@@ -100,7 +99,7 @@ $("#photoTrackButton").click(function() {
 		url: 'resources/SaveSearch.php',
 		method: 'POST', // or GET
 		success: function(msg) {
-			alert(msg);
+			//alert(msg);
 		}
 	});
 });
@@ -115,7 +114,6 @@ function reqListener() {
     try {
         var reply = this.responseText;
         if (reply == '') {
-			$('#errorMessage').css({'visibility':'visible'});
             $("#errorMessage").show();
             $("#errorMessage").html('<span class="glyphicon glyphicon-remove"></span> No consignment or item number exists.');
             throw new Error('No consignment or item number exists.');
@@ -131,7 +129,6 @@ function reqListener() {
 
         var businessUnitId = parsedJSON['trackeableEntities']['trackeableEntity']['0']['businessUnit']['id'];
         if (businessUnitId != 'IPEC') {
-			$('#errorMessage').css({'visibility':'visible'});
             $("#errorMessage").show();
             $("#errorMessage").html('<span class="glyphicon glyphicon-remove"></span> Consignment is not being sent through TOLL IPEC, not supported.');
             throw new Error('Consignment is not being sent through TOLL IPEC, not supported.');
@@ -201,12 +198,9 @@ function reqListener() {
         //}
         updateTable();
         enableBarcodeGeneration();
-		$('#barcodeTable').css({'visibility':'visible'});
         $("#barcodeTable").show();
-		$('#senderTable').css({'visibility':'visible'});
         $("#senderTable").show();
         $("#itemCount").text(itemCount + ' item(s) found.');
-		$('#itemCount').css({'visibility':'visible'});
         $("#itemCount").show();
         items.length = 0; // reset list now we no longer need it
     } catch (err) {

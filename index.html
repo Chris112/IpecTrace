@@ -5,9 +5,15 @@
 <html ng-app="ipectrace" lang="en-US">
 
    <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 	
 	<link rel="shortcut icon" href="favicon.ico" />
+	
+	<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+	
+	
 
    
       <script type="text/javascript" src="lib/jquery.js"></script>
@@ -36,6 +42,7 @@
       <link rel="stylesheet" href="style.css" />
       <script src="script.js"></script>
 	  
+	  <script type="text/javascript" src="lib/bootstrap-filestyle.min.js"> </script>
 	  <!-- attempting to remove errors for ie and quaggaJS
 	  <script type="text/javascript" src="lib/quaggaJS/es6-promise.js"></script>
 	  <script type="text/javascript" src="lib/quaggaJS/exif_helper.js"></script>-->
@@ -50,16 +57,19 @@
    <div id="wrapper">
       <!-- HEADER AND NAVBAR -->
       <header>
+	  
          <nav class="navbar navbar-default">
+		 
             <div class="container">
+			
                <div class="navbar-header">
-                  <a class="navbar-brand" href="/">IPEC Trace and Barcode Generator</a>
+			   <img src="resources/toll_header.png" class="img-responsive" alt="Toll logo" style="width:70%;">
+                  <!--<a class="navbar-brand" href="#/">IPEC Trace and Barcode Generator</a>-->
                </div>
                <ul class="nav navbar-nav navbar-right">
                   <li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
-                  <li><a href="#TrackConsignment"><i class="glyphicon glyphicon-barcode"></i> Manual Enter</a></li>
-                  <li><a href="#PhotoSearch"><i class="glyphicon glyphicon-camera"></i> Photo Lookup</a></li>
-				  <li><a href="#Security"><i class="glyphicon glyphicon-eye-open"></i> Security</a></li>
+                  <li><a href="#/TrackConsignment"><i class="glyphicon glyphicon-barcode"></i> Manual Enter</a></li>
+                  <li><a href="#/PhotoSearch"><i class="glyphicon glyphicon-camera"></i> Photo Lookup</a></li>
                </ul>
             </div>
          </nav>
@@ -80,6 +90,6 @@
   
 	
    <footer class="footer">
-   <p> Copyright © 2016. All Rights Reserved | Designed and created by Chris Webb | www.imchrisw.com</p>
+   <p> Copyright © 2016. All Rights Reserved</p>
    </footer>
 </html>
